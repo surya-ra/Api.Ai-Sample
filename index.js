@@ -21,7 +21,7 @@ restService.get('/', function (req, res) {
         server: 'blrblrps4.corp.capgemini.com', 
         database: 'sakila' 
     };*/
-	var config=mysql.createConnection({
+/*	var config=mysql.createConnection({
 		host:"blrblrps4.corp.capgemini.com",
 		user:"mysqldb",
 		password:"mysqldb@123",
@@ -36,7 +36,7 @@ restService.get('/', function (req, res) {
 			if(err) throw err;
 			console.log(result);
 		});
-	});
+	});*/
 	 /*    sql.connect(config, function (err) {
         if (err) console.log(err);
         // create Request object
@@ -52,7 +52,22 @@ restService.get('/', function (req, res) {
 });
 				/*Post request to bot*/
 restService.post('/echo', function(req, res) {
-   
+   var config=mysql.createConnection({
+		host:"blrblrps4.corp.capgemini.com",
+		user:"mysqldb",
+		password:"mysqldb@123",
+		database:"sakila"
+	});
+	var qur="select * from actor"
+	 // connect to database
+	config.connect(function(err){
+		if(err) throw err;
+		console.log("Connected!");
+		config.query(qur,function(err,result,fields){
+			if(err) throw err;
+			console.log(result);
+		});
+	});
    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
    console.log(speech);
    return res.json({
@@ -60,6 +75,16 @@ restService.post('/echo', function(req, res) {
         displayText: speech,
         source: 'webhook-echo-sample'
     });
+	var qur="select * from actor"
+	 // connect to database
+	config.connect(function(err){
+		if(err) throw err;
+		console.log("Connected!");
+		config.query(qur,function(err,result,fields){
+			if(err) throw err;
+			console.log(result);
+		});
+	});
 });
 
 restService.post('/slack-test', function(req, res) {
