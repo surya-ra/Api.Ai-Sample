@@ -52,7 +52,7 @@ restService.get('/', function (req, res) {
 });
 				/*Post request to bot*/
 restService.post('/echo', function(req, res) {
-   var config=mysql.createConnection({
+/*   var config=mysql.createConnection({
 		host:"blrblrps4.corp.capgemini.com",
 		user:"mysqldb",
 		password:"mysqldb@123",
@@ -67,7 +67,7 @@ restService.post('/echo', function(req, res) {
 			if(err) throw err;
 			console.log(result);
 		});
-	});
+	});*/
    var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
    console.log(speech);
    return res.json({
@@ -75,7 +75,7 @@ restService.post('/echo', function(req, res) {
         displayText: speech,
         source: 'webhook-echo-sample'
     });
-	var qur="select * from actor"
+/*	var qur="select * from actor"
 	 // connect to database
 	config.connect(function(err){
 		if(err) throw err;
@@ -84,7 +84,7 @@ restService.post('/echo', function(req, res) {
 			if(err) throw err;
 			console.log(result);
 		});
-	});
+	});*/
 });
 
 restService.post('/slack-test', function(req, res) {
