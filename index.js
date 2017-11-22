@@ -13,15 +13,16 @@ restService.use(bodyParser.json());
 
 				/*Connect ms sql*/
 restService.get('/', function (req, res) {   
-	
+
 	// configure database
- /*   var config = {
+    var config = {
         user: 'mysqldb',
         password: 'mysqldb@123',
         server: 'blrblrps4.corp.capgemini.com', 
         database: 'sakila' 
-    };*/
-/*	var config=mysql.createConnection({
+    };
+	
+	var config=mysql.createConnection({
 		host:"blrblrps4.corp.capgemini.com",
 		user:"mysqldb",
 		password:"mysqldb@123",
@@ -34,9 +35,10 @@ restService.get('/', function (req, res) {
 		console.log("Connected!");
 		config.query(qur,function(err,result,fields){
 			if(err) throw err;
-			console.log(result);
+			//console.log(result);
+			res.send(result);
 		});
-	});*/
+	});
 	 /*    sql.connect(config, function (err) {
         if (err) console.log(err);
         // create Request object
