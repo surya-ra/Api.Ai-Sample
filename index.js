@@ -47,7 +47,7 @@ restService.get('/', function (req, res) {
     });*/
 });
 				/*Post request to bot*/
-//restService.post('/echo', function(req, res) {
+restService.post('/echo', function(req, res) {
 
 
   var speech = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : "Seems like some problem. Speak again."
@@ -57,6 +57,7 @@ restService.get('/', function (req, res) {
         displayText: speech,
         source: 'webhook-echo-sample'
     });
+res.send("hi there");
 /*	var qur="select * from actor"
 	 // connect to database
 	config.connect(function(err){
