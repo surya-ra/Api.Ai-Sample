@@ -17,10 +17,10 @@ restService.get('/', function (req, res) {
 	// configure database
 
 	var config=mysql.createConnection({
-		host:"blrblrps4.corp.capgemini.com",
-		user:"mysqldb",
-		password:"mysqldb@123",
-		database:"sakila"
+		host:"xxxxx",
+		user:"xxxx",
+		password:"xxxx",
+		database:"xxxx"
 	});
 	var qur="select * from actor"
 	 // connect to database
